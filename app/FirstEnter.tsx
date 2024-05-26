@@ -37,7 +37,7 @@ export default function FirstEnter() {
               <Text className="text-blue_mid">Próximo</Text>
             </Pressable>
           ) : (
-            <Link href={"#"} className="text-blue_mid">
+            <Link href={"(home)"} className="text-blue_mid">
               Continuar
             </Link>
           )}
