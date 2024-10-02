@@ -29,7 +29,7 @@ type FormDataProps = {
         .string()
         .required("Campo de confirmar senha é obrigatório")
     })
-export default function Signout() {
+export default function SignoutProfissional() {
   const [showPassword, setShowPassword] = useState(true);
   return (
     <View className="w-full h-full bg-blue_light flex-1 justify-center items-center">
@@ -74,9 +74,21 @@ export default function Signout() {
             keyboardType="name-phone-pad"
           />
         </View>
+        <View className="flex-row items-center gap-4 border-b-[1px] border-blue_mid py-2">
+          <AntDesign
+            name="idcard"
+            size={24}
+            color="gray"
+            className="opacity-40"
+          />
+          <TextInput
+            placeholder="CRM ou CRP"
+            className="w-full opacity-40 text-xl"
+            keyboardType="name-phone-pad"
+          />
+        </View>
         <View className="flex-row py-2 items-center  w-72 gap-4 border-b-[1px] border-blue_mid ">
           <AntDesign name="key" size={24} color="gray" className="opacity-40" />
-
           <TextInput
             placeholder="Senha"
             className="w-4/6 opacity-40  text-xl"
@@ -137,14 +149,13 @@ export default function Signout() {
           Concordo com os termos de serviço e politica de privacidade
           </Text>
         </View>
-         {/* @ts-ignore  O erro está com bug em tipagem de rota*/}
-        <Link href={{pathname:"FirstEntry/[firstEntry]",params: {firtsEntry: "Pessoa"}}} asChild>
+        {/* @ts-ignore  O erro está com bug em tipagem de rota*/}
+          <Link href={{pathname:"FirstEntry/[firstEntry]",params: {firtsEntry: "Profissional"}}} asChild>
         <TouchableOpacity>
         <View className="w-72 border-blue_mid  border-[1px]  rounded-full  h-16 justify-center items-center ">
           <Text>Proximo</Text>
         </View>
       </TouchableOpacity>
-      
       </Link>
       </View>
     </View>

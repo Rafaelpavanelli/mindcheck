@@ -16,7 +16,8 @@
 
  export default function Login() {
    const [showPassword, setShowPassword] = useState(true);
-   const router = useRouter()
+   const router = useRouter();
+   
    return (
      <View className="bg-blue_light flex-1 justify-center items-center flex-col gap-4">
        <Text className="text-5xl font-bold text-blue_mid">MindCheck</Text>
@@ -64,7 +65,7 @@
            </TouchableOpacity>
          </View>
        </View>
-       <TouchableOpacity onPress={()=>router.push('(home)')}>
+       <TouchableOpacity onPress={()=>router.push('/(home)')}>
          <View className="w-72 border-blue_mid  border-[1px]  rounded-full  h-16 justify-center items-center ">
            <Text>Login</Text>
          </View>
@@ -74,7 +75,7 @@
              Esqueci a senha
          </Text>
          <Text>
-             Não tem conta? <Link href={'signout'}>Cadastre-se</Link>
+             Não tem conta? <Link href={'/SelectSignout'}>Cadastre-se</Link>
          </Text>
        </View>
      </View>

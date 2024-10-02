@@ -47,7 +47,13 @@ import { TouchableOpacity } from 'react-native';
          <Stack.Screen name='signout' options={{
            animation:'slide_from_right'
          }}/>
-         <Stack.Screen name='FirstEnter' options={{
+         <Stack.Screen name='SelectSignout' options={{
+           animation:'slide_from_right'
+         }}/>
+         <Stack.Screen name='SignoutProfissional' options={{
+           animation:'slide_from_right'
+         }}/>
+         <Stack.Screen name='FirstEntry/[firstEntry]' options={{
            animation:'slide_from_right'
          }}/>
           <Stack.Screen name='(home)' options={{

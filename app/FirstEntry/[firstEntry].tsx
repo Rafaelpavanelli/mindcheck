@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useLocalSearchParams } from "expo-router";
 import { Image, Pressable, Text, View } from "react-native";
-import { FirstEnterInfosPage } from "@/data/firstEnterInfosPage";
+import { FirstEnterInfosPage as Info, FirstEnterInfosPageProps} from "@/data/firstEnterInfosPage";
 import { Link } from "expo-router";
 
 export default function FirstEnter() {
+  const {firstEntry} = useLocalSearchParams();
   const [pageCount, setPageCount] = useState(0);
   const image = ["image0","image1","image2"]
+  const FirstEnterInfosPage:FirstEnterInfosPageProps[] = firstEntry === "Pessoa"? Info[0].Info:Info[1].Info
   return (
     <View className="h-full bg-blue_light justify-center  items-center gap-8">
       <Image
@@ -37,7 +40,7 @@ export default function FirstEnter() {
               <Text className="text-blue_mid">Próximo</Text>
             </Pressable>
           ) : (
-            <Link href={"(home)"} className="text-blue_mid">
+            <Link href={"/(home)"} className="text-blue_mid">
               Continuar
             </Link>
           )}

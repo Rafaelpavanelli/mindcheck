@@ -1,11 +1,13 @@
+import { useUser } from "@/hooks/useUser";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { Link, useRouter } from "expo-router";
-import { Text, View,Image } from "react-native";
+import { Text, View,Image, Pressable } from "react-native";
 
 export default function DrawerContentCustom(props: any) {
+  const {handleLogoutUser,user} = useUser()
   return (
     <View style={{ flex: 1,paddingVertical: 20,backgroundColor: "#3A6C8D",paddingBottom: 40}}>
       <DrawerContentScrollView
@@ -24,12 +26,12 @@ export default function DrawerContentCustom(props: any) {
       <View className="items-center flex-row justify-center gap-4">
       <Image source={{uri: "https://github.com/RafaelPavanelli.png"}} width={50} height={50} style={{borderRadius: 400}}/>
       <View className="w-1/2">
-        <Link href={''} style={{borderBottomWidth: 1, borderColor: 'gray',paddingVertical: 4}}>
-          Rafael Pavanelli
-        </Link>
-        <Link href={''} >
-          Sair
-        </Link>
+      <Link href={'/SignoutProfissional'} asChild>
+      <Pressable onPress={()=>handleLogoutUser()}>
+          <Text> Sair</Text>
+        </Pressable>
+      </Link>
+       
       </View>
       </View>
     </View>
