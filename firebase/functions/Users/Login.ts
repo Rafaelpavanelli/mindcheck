@@ -2,6 +2,7 @@ import { app, db } from "@/firebase/config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
 
+
 interface SigInProps {
   email: string;
   password: string;
@@ -9,7 +10,7 @@ interface SigInProps {
 }
 
 export async function SigIn(data: SigInProps) {
-  const auth = getAuth(app);
+  const auth = getAuth(app)
   try {
     const user = await signInWithEmailAndPassword(auth, data.email, data.password);
     if(user.user.uid){

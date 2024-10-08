@@ -9,6 +9,7 @@ import { Link } from "expo-router";
 import { useAuth } from "@/hooks/authContext";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import AnimatedSVGWithAnimation from "@/components/Loading";
 
 type Login = {
   email: string;
@@ -36,10 +37,16 @@ export default function Login() {
 
   const [showPassword, setShowPassword] = useState(true);
   const { signIn } = useAuth();
+  const [loading,setLoading]=useState(false);
 
   const onSubmit = async (data: Login) => {
     try {
+      setLoading(true)
       const result:any = await signIn(data);
+      if(!result){
+        setLoading(false);
+        setError('root',{type: "validate",message: "Email ou senha invalidos"})
+      }
       
     } catch (error: any) {
       console.error("Erro ao fazer login:", error); // Log de erro
@@ -47,7 +54,7 @@ export default function Login() {
       setError("root", { type: "validate", message: error.message || "Erro desconhecido" });
     }
   };
-
+  
   return (
     <View className="bg-blue_light flex-1 justify-center items-center flex-col gap-4">
       <Text className="text-5xl font-bold text-blue_mid">MindCheck</Text>
@@ -131,9 +138,13 @@ export default function Login() {
           ""
         )}
       </View>
-      <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+      <TouchableOpacity disabled={loading} onPress={handleSubmit(onSubmit)}>
         <View className="w-72 border-blue_mid border-[1px] rounded-full h-16 justify-center items-center ">
-          <Text>Login</Text>
+          {
+            loading? <Text>Carregando...</Text>: <Text>login</Text>
+          }
+         
+          
         </View>
       </TouchableOpacity>
       <View className="h-20 flex-col justify-between opacity-45">

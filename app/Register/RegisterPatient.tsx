@@ -10,7 +10,7 @@ import { useAuth } from "@/hooks/authContext";
 
 // Definindo o tipo de dados do formulário
 type FormDataProps = {
-  name: string;
+  fullname: string;
   email: string;
   password: string;
   confirm_password: string;
@@ -19,7 +19,7 @@ type FormDataProps = {
 
 // Definindo o esquema de validação com Yup
 const profileSchema = yup.object({
-  name: yup.string().required("Campo nome é obrigatório"),
+  fullname: yup.string().required("Campo nome é obrigatório"),
   email: yup
     .string()
     .email("Email inválido")
@@ -54,7 +54,7 @@ export default function RegisterPatient() {
   });
   const errorMessage = 
   errors.email?.message ||
-  errors.name?.message ||
+  errors.fullname?.message ||
   errors.password?.message ||
   errors.confirm_password?.message ||
   errors.cpf?.message ||
@@ -96,9 +96,9 @@ export default function RegisterPatient() {
 
         <Controller
           control={control}
-          name="name"
+          name="fullname"
           render={({ field: { onChange, value } }) => (
-            <View className={"flex-row items-center gap-4 border-b-[1px] py-2"+`${errors.name?.message? 'border-red-500':'border-blue_mid'}`}>
+            <View className={"flex-row items-center gap-4 border-b-[1px] py-2"+`${errors.fullname?.message? 'border-red-500':'border-blue_mid'}`}>
               <FontAwesome6
                 name="users-viewfinder"
                 size={24}

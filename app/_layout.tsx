@@ -111,7 +111,6 @@ function RootLayoutNav() {
       let userToken: string | null = null;
       try {
         userToken = await AsyncStorage.getItem("@keyUser");
-        console.log(userToken)
         if (userToken){
           dispatch({ type: "RESTORE_TOKEN", token: userToken });
           router.navigate('/home')
@@ -130,11 +129,16 @@ function RootLayoutNav() {
   const authContext = useMemo(
     () => ({
       signIn: async (data: any) => {
-        const user = await SigIn(data);
-        if(user.user.uid){
-          dispatch({ type: "SIGN_IN", token: user.user.uid});
-          router.navigate('/home')
+        try{
+          const user = await SigIn(data);
+          if(user?.user.uid){
+            dispatch({ type: "SIGN_IN", token: user.user.uid});
+            router.navigate('/home')
+          }
+        }catch(e){
+          console.log(e)
         }
+      
       },
       signOut: async () => {
        try{

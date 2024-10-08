@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "336164111081",
+    "project_id": "mindcheck-f9c97",
+    "storage_bucket": "mindcheck-f9c97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336164111081:android:2ff1cef06752fc7df76678",
+        "android_client_info": {
+          "package_name": "com.anonymous.mindcheck"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVvfVRs61vRpPk5M5oryTFttDd-CnZ9hI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

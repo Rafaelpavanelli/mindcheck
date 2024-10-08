@@ -9,12 +9,12 @@ export const CreateUserWithEmailAndPassword = async (user:UserInterface) => {
         const CreateUser = await createUserWithEmailAndPassword(auth,user.email,user.password);
         if(CreateUser.user){
             await setDoc(doc(db, "users",CreateUser.user.uid),{
-                fullName: user.name,
+                fullName: user.fullname,
                 cpf: user.cpf
             });
             await AsyncStorage.setItem('@keyUser',JSON.stringify(CreateUser.user.uid));
             return {
-                name: user.name,
+                name: user.fullname,
                 uid:CreateUser.user.uid
             }
         }
