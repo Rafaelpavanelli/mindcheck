@@ -3,10 +3,16 @@
 [x] Tela de menu
 [x] Tela de criação para profissionais
 [x] Mensagem que será verificado
-[] Verificação de forms
+[x] Verificação de forms
+  [x] login
+  [x] Cadastro Profissional
+  [x] Cadastro Pessoa
 [] Tela de criação de questionários
 [] Tela de notificações
 [] Sistema de notificações
 [] Tela de mensagens
 [] Sistema de mensagens
 [] Layout das mensagens
+
+
+

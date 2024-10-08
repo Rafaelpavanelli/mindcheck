@@ -1,13 +1,17 @@
+import { useAuth } from "@/hooks/authContext";
 import { useUser } from "@/hooks/useUser";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { Text, View,Image, Pressable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function DrawerContentCustom(props: any) {
-  const {handleLogoutUser,user} = useUser()
+  const {user} = useUser()
+  const {signOut} = useAuth();
+  
   return (
     <View style={{ flex: 1,paddingVertical: 20,backgroundColor: "#3A6C8D",paddingBottom: 40}}>
       <DrawerContentScrollView
@@ -26,11 +30,10 @@ export default function DrawerContentCustom(props: any) {
       <View className="items-center flex-row justify-center gap-4">
       <Image source={{uri: "https://github.com/RafaelPavanelli.png"}} width={50} height={50} style={{borderRadius: 400}}/>
       <View className="w-1/2">
-      <Link href={'/SignoutProfissional'} asChild>
-      <Pressable onPress={()=>handleLogoutUser()}>
-          <Text> Sair</Text>
-        </Pressable>
-      </Link>
+      <Text>{user?user.name: 'null'}</Text>
+      <TouchableOpacity onPress={async ()=>await signOut()}>
+        <Text>Sair</Text>
+      </TouchableOpacity>
        
       </View>
       </View>

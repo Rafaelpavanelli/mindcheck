@@ -1,6 +1,6 @@
 export interface UserInterface {
     email:string;
     name: string;
-    cpf: number;
+    cpf: string;
     password:string;
 }

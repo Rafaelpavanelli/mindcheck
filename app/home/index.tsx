@@ -16,6 +16,7 @@ export default function Home() {
           </Text>
         </View>
         <Text className="text-center font-semibold text-xl">Questionários de autoavaliação</Text>
+        {/* @ts-ignore  O erro está com bug em tipagem de rota*/}
         <Link href={'Questions'}>
           Teste
         </Link>

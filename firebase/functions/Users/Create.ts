@@ -12,7 +12,7 @@ export const CreateUserWithEmailAndPassword = async (user:UserInterface) => {
                 fullName: user.name,
                 cpf: user.cpf
             });
-            await AsyncStorage.setItem('@uidUser',JSON.stringify(CreateUser.user.uid));
+            await AsyncStorage.setItem('@keyUser',JSON.stringify(CreateUser.user.uid));
             return {
                 name: user.name,
                 uid:CreateUser.user.uid
