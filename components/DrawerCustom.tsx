@@ -1,16 +1,19 @@
 import { useAuth } from "@/hooks/authContext";
 import { useUser } from "@/hooks/useUser";
+import { ProfissionalInterface } from "@/interfaces/Profissional.interface";
+import { UserInterface } from "@/interfaces/User.interface";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
+import { useMemo } from "react";
 import { Text, View, Image, ActivityIndicator } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function DrawerContentCustom(props: any) {
   const { user } = useUser();
   const { signOut } = useAuth();
-
+ 
   return (
     <View
       style={{
@@ -44,7 +47,10 @@ export default function DrawerContentCustom(props: any) {
 
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-
+          {
+            //@ts-ignore
+            user?.isValid === "Não verificado"? <View className="bg-yellow-300 items-center flex-row justify-center"><Text className="text-white">A sua conta no momento ainda não foi validada como profissional. Por favor aguarde para que seja atualizada</Text></View>:''
+          }
       {!user ? (
         <ActivityIndicator size={30} color={"#161666"}/>
       ) : (

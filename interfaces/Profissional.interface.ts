@@ -3,5 +3,5 @@ export interface ProfissionalInterface{
   email:string,
   password:string,
   credential:string|number,
-  isValid?:boolean
+  isValid?:string
 }

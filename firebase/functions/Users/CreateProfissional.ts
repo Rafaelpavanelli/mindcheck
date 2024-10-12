@@ -11,7 +11,7 @@ export const CreateProfissionalWithEmailAndPassword = async (user:ProfissionalIn
             await setDoc(doc(db, "users",CreateUser.user.uid),{
                 fullName: user.fullname,
                 credential: user.credential,
-                isValid: false
+                isValid: "Não verificado"
             });
             await AsyncStorage.setItem('@keyUser',JSON.stringify(CreateUser.user.uid));
             return {

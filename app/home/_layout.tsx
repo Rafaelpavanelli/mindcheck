@@ -3,7 +3,9 @@ import { Drawer } from "expo-router/drawer";
 import { DrawerHeader } from "@/components/drawerheader";
 import Feather from "@expo/vector-icons/Feather";
 import CustomDrawerContent from "@/components/DrawerCustom";
+import { useUser } from "@/hooks/useUser";
 export default function Layout() {
+  const {user} = useUser();
   return (
     <GestureHandlerRootView style={{ flex: 1}}>
       <Drawer
@@ -25,7 +27,6 @@ export default function Layout() {
             drawerIcon: ({ size, color }) => (
               <Feather name="user" size={size} color={color} />
             ),
-            
           }}
         />
       </Drawer>
