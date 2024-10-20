@@ -125,6 +125,7 @@ function RootLayoutNav() {
     bootstrapAsync();
   }, []);
 
+
   // Memoize para evitar recriações desnecessárias
   const authContext = useMemo(
     () => ({

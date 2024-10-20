@@ -1,4 +1,4 @@
-export interface UserInterface {
+export type UserInterface = {
     email:string;
     fullname: string;
     cpf: string;

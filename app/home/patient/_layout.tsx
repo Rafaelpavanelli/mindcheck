@@ -4,6 +4,7 @@ import { DrawerHeader } from "@/components/drawerheader";
 import Feather from "@expo/vector-icons/Feather";
 import CustomDrawerContent from "@/components/DrawerCustom";
 export default function Layout() {
+
   return (
     <GestureHandlerRootView style={{ flex: 1}}>
       <Drawer
@@ -25,9 +26,10 @@ export default function Layout() {
             drawerIcon: ({ size, color }) => (
               <Feather name="user" size={size} color={color} />
             ),
-            
           }}
         />
+
+        
       </Drawer>
     </GestureHandlerRootView>
   );

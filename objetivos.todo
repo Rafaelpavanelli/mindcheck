@@ -7,6 +7,8 @@
   [x] login
   [x] Cadastro Profissional
   [x] Cadastro Pessoa
+  [] Formulário de criação de questões
+  [] Formulário de resposta de questionários
 [] Tela para atualizar informações dos usuários
 [] Tela de criação de questionários
 [] Tela de notificações
@@ -14,6 +16,7 @@
 [] Tela de mensagens
 [] Sistema de mensagens
 [] Layout das mensagens
-
+[] Otimização do carregamento dos dados do usuário
+[] Definir e usar o getUser
 
 

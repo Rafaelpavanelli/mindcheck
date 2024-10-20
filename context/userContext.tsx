@@ -29,7 +29,6 @@ export function userProvider({ children }:UserContextProviderProps) {
 
       try{
         const uid =  await AsyncStorage.getItem("@keyUser")
-        console.log(uid)
         if(uid){
           const docRef = doc(db, "users", JSON.parse(uid));
           const docSnap = await getDoc(docRef);
