@@ -1,12 +1,18 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { UserInterface } from "@/interfaces/User.interface";
-import { CreateUserWithEmailAndPassword } from "@/firebase/functions/Users/Create";
 import { useRouter } from "expo-router";
+import { doc,getDoc } from "firebase/firestore";
+import { db } from "@/firebase/config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ProfissionalInterface } from "@/interfaces/Profissional.interface";
+type ProfissionalUser = {
+  fullname:string,
+  credential:string,
+  isValid:string
+}
 export interface UserContextDataProps {
-  user: UserInterface;
-  
-  handleCreateUser:(user:UserInterface)=> any;
-  handleLogoutUser:()=>void;
+  user: UserInterface | ProfissionalUser;
+ 
 }
 
 export const UserContext = createContext<UserContextDataProps>(
@@ -19,17 +25,38 @@ interface UserContextProviderProps{
 export function userProvider({ children }:UserContextProviderProps) {
     const router = useRouter()
     const[user,setUser]=useState<any>(null);
-    async function handleCreateUser(user:UserInterface){
-        try{
-            const userData = await CreateUserWithEmailAndPassword(user);
-            setUser(userData);
-        }catch(error){
-            console.log(error);
+
+    async function getUser(){
+      try{
+        const uid =  await AsyncStorage.getItem("@keyUser")
+        if(uid){
+          const docRef = doc(db, "users", JSON.parse(uid));
+          const docSnap = await getDoc(docRef);
+          if(docSnap.exists()){
+            if(docSnap.data().isValid){
+              const profissional:ProfissionalUser | any= docSnap.data();
+              setUser(profissional)
+            }else{
+              const userPatient:UserInterface | any = docSnap.data()
+              setUser(userPatient)
+            }
+          
+          }else{
+            throw new Error(
+              "Usuário não encontrado no banco de dados. Entre em contato com o suporte!"
+            );
+          }
         }
+      }catch(e){
+        throw new Error(
+         "Erro ao procurar chave UID"
+        );
+      }
     }
-    function handleLogoutUser(){
-      setUser({})
-      router.push('/Questions')
-    }
-  return <UserContext.Provider value={{handleCreateUser,user,handleLogoutUser}}>{children}</UserContext.Provider>;
+    
+    useEffect(()=>{
+      getUser();
+    },[])
+    
+  return <UserContext.Provider value={{user}}>{children}</UserContext.Provider>;
 }

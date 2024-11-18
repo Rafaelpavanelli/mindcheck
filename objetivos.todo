@@ -3,10 +3,21 @@
 [x] Tela de menu
 [x] Tela de criação para profissionais
 [x] Mensagem que será verificado
-[] Verificação de forms
-[] Tela de criação de questionários
+[x] Verificação de forms
+  [x] login
+  [x] Cadastro Profissional
+  [x] Cadastro Pessoa
+  [x] Formulário de criação de questões
+  [] Formulário de resposta de questionários
+[] Adicionar no questionario ainda a classe do questionário: Depressão, borderline e etc
+[] Adicionar se o questionário foi aprovado ja ou não
+[] Tela para atualizar informações dos usuários
 [] Tela de notificações
 [] Sistema de notificações
 [] Tela de mensagens
 [] Sistema de mensagens
 [] Layout das mensagens
+[] Otimização do carregamento dos dados do usuário
+[] Definir e usar o getUser
+
+

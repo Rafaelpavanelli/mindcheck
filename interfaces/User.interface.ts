@@ -1,6 +1,6 @@
-export interface UserInterface {
+export type UserInterface = {
     email:string;
-    name: string;
-    cpf: number;
+    fullname: string;
+    cpf: string;
     password:string;
 }

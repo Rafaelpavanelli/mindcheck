@@ -1,10 +1,10 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import { Pressable, Text } from "react-native";
 import { DrawerHeader } from "@/components/drawerheader";
 import Feather from "@expo/vector-icons/Feather";
 import CustomDrawerContent from "@/components/DrawerCustom";
 export default function Layout() {
+
   return (
     <GestureHandlerRootView style={{ flex: 1}}>
       <Drawer
@@ -16,6 +16,16 @@ export default function Layout() {
         }}
         drawerContent={CustomDrawerContent}
       >
+         <Drawer.Screen
+          name="questionario/[teste]"
+          options={({ navigation }) => ({
+            drawerItemStyle: {
+              display: "none",
+            },
+            headerShown: false,
+          })}
+        />
+
         <Drawer.Screen
           name="index"
           options={{
@@ -26,9 +36,10 @@ export default function Layout() {
             drawerIcon: ({ size, color }) => (
               <Feather name="user" size={size} color={color} />
             ),
-            
           }}
         />
+
+        
       </Drawer>
     </GestureHandlerRootView>
   );

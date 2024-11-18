@@ -31,7 +31,7 @@ export const FirstEnterInfosPage = [
     Tipo: "Profissional",
     Info: <FirstEnterInfosPageProps[]>[
       {
-        title: "Introdução ao MindCheck",
+        title: "Introdução ao PsyConnection",
         description:
           "Nosso objetivo é fornecer ferramentas de avaliação que auxiliem na compreensão de aspectos psicológicos importantes dos seus pacientes. Este aplicativo foi desenvolvido para ser uma extensão do seu trabalho clínico, oferecendo testes padronizados que podem ser utilizados como parte do processo de avaliação.",
         image: require("@/assets/images/image0.png"),
