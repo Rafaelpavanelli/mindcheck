@@ -31,7 +31,7 @@ export default function DrawerContentCustom(props: any) {
         <View style={{ paddingVertical: 20, paddingHorizontal: 50 }}>
           <Text
             style={{
-              fontSize: 24,
+              fontSize: 20,
               textAlign: "center",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
@@ -39,7 +39,7 @@ export default function DrawerContentCustom(props: any) {
               padding: 4,
             }}
           >
-            MindCheck
+            PsyConnection
           </Text>
         </View>
 

@@ -79,7 +79,7 @@ export default function RegisterProfessional() {
 
   return (
     <View className="w-full h-full bg-blue_light flex-1 justify-center items-center">
-      <Text className="text-5xl font-bold text-blue_mid">MindCheck</Text>
+      <Text className="text-5xl font-bold text-blue_mid">PsyConnection</Text>
       <View className="gap-8 w-72 mt-20">
         <Controller
           control={control}

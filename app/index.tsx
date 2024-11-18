@@ -9,7 +9,6 @@ import { Link } from "expo-router";
 import { useAuth } from "@/hooks/authContext";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import AnimatedSVGWithAnimation from "@/components/Loading";
 
 type Login = {
   email: string;
@@ -57,7 +56,7 @@ export default function Login() {
   
   return (
     <View className="bg-blue_light flex-1 justify-center items-center flex-col gap-4">
-      <Text className="text-5xl font-bold text-blue_mid">MindCheck</Text>
+      <Text className="text-4xl font-bold text-blue_mid">Psyconnection</Text>
       <Image
         source={require("@/assets/images/logo.png")}
         className="w-full h-60"

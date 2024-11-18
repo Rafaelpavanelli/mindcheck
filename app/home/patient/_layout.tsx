@@ -16,6 +16,16 @@ export default function Layout() {
         }}
         drawerContent={CustomDrawerContent}
       >
+         <Drawer.Screen
+          name="questionario/[teste]"
+          options={({ navigation }) => ({
+            drawerItemStyle: {
+              display: "none",
+            },
+            headerShown: false,
+          })}
+        />
+
         <Drawer.Screen
           name="index"
           options={{

@@ -7,10 +7,11 @@
   [x] login
   [x] Cadastro Profissional
   [x] Cadastro Pessoa
-  [] Formulário de criação de questões
+  [x] Formulário de criação de questões
   [] Formulário de resposta de questionários
+[] Adicionar no questionario ainda a classe do questionário: Depressão, borderline e etc
+[] Adicionar se o questionário foi aprovado ja ou não
 [] Tela para atualizar informações dos usuários
-[] Tela de criação de questionários
 [] Tela de notificações
 [] Sistema de notificações
 [] Tela de mensagens

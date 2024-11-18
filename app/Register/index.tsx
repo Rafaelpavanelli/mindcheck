@@ -5,7 +5,7 @@ export default function SelectSigin() {
   const router = useRouter();
   return (
     <View className="flex-1 bg-blue_light justify-between py-60 items-center">
-      <Text className="text-5xl font-bold text-blue_mid">MindCheck</Text>
+      <Text className="text-5xl font-bold text-blue_mid">PsyConnection</Text>
       <Image
         source={require("@/assets/images/logo.png")}
         className="w-full h-60"

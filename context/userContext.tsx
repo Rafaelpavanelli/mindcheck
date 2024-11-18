@@ -12,6 +12,7 @@ type ProfissionalUser = {
 }
 export interface UserContextDataProps {
   user: UserInterface | ProfissionalUser;
+ 
 }
 
 export const UserContext = createContext<UserContextDataProps>(
@@ -26,7 +27,6 @@ export function userProvider({ children }:UserContextProviderProps) {
     const[user,setUser]=useState<any>(null);
 
     async function getUser(){
-
       try{
         const uid =  await AsyncStorage.getItem("@keyUser")
         if(uid){
@@ -53,6 +53,7 @@ export function userProvider({ children }:UserContextProviderProps) {
         );
       }
     }
+    
     useEffect(()=>{
       getUser();
     },[])

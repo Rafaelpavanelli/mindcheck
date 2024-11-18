@@ -19,6 +19,7 @@ import { UserInterface } from "@/interfaces/User.interface";
 import { CreateProfissionalWithEmailAndPassword } from "@/firebase/functions/Users/CreateProfissional";
 import { ProfissionalInterface } from "@/interfaces/Profissional.interface";
 import { SigIn } from "@/firebase/functions/Users/Login";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 // Definição das interfaces para o estado e ações do reducer
 interface AuthState {
@@ -154,6 +155,7 @@ function RootLayoutNav() {
       signUp: async (data: UserInterface) => {
         try {
           const createUser = await CreateUserWithEmailAndPassword(data);
+          console.log("Deslogado")
           if (createUser) {
             dispatch({ type: "SIGN_IN", token: createUser.uid });
             router.push('/FirstEntry/Pessoa')
@@ -190,6 +192,9 @@ function RootLayoutNav() {
   },[state.userToken])
   return (
     <AuthContext.Provider value={authContext}>
+      <GestureHandlerRootView>
+
+      
       <UserProvider>
         <Stack
           initialRouteName="index"
@@ -218,6 +223,7 @@ function RootLayoutNav() {
             />
         </Stack>
         </UserProvider>
+        </GestureHandlerRootView>
     </AuthContext.Provider>
   );
 }
